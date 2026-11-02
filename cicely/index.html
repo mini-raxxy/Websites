@@ -120,6 +120,16 @@ h2 { font:400 clamp(42px,5vw,70px)/.98 var(--site-font-heading); letter-spacing:
 .story-caption { position:absolute; bottom:28px; left:30px; color:#fff8ef; text-transform:uppercase; letter-spacing:.2em; font-size:9px; }
 .story-copy p { color:var(--muted); line-height:1.9; font-size:13px; max-width:440px; }
 .story-signoff { color:var(--plum); font:italic 28px var(--site-font-heading); margin-top:28px; }
+.reviews-section { background:#f6f0e7; }
+.reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.review-card { background:#fffaf2; border:1px solid rgba(84,37,63,.16); padding:26px; display:flex; flex-direction:column; min-height:250px; }
+.review-stars { color:#8b7133; letter-spacing:.18em; font-size:12px; }
+.review-card blockquote { margin:20px 0 24px; color:var(--plum); font:400 23px/1.22 var(--site-font-heading); flex:1; }
+.review-author { font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--ink); }
+.review-source { margin-top:7px; font-size:10px; color:var(--muted); }
+.review-links { display:flex; gap:18px; flex-wrap:wrap; margin-top:24px; font-size:10px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--plum); }
+.whatsapp-float { position:fixed; z-index:20; right:22px; bottom:22px; display:inline-flex; align-items:center; gap:10px; background:#1f9d58; color:#fff; padding:14px 19px; border-radius:999px; box-shadow:0 10px 28px rgba(0,0,0,.2); font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+.whatsapp-float:hover { transform:translateY(-3px); }
 .quote-band { background:var(--site-secondary); color:var(--site-on-secondary); padding:74px 22px; text-align:center; }
 .quote-band blockquote { font:400 clamp(30px,4vw,54px)/1.08 var(--site-font-heading); max-width:900px; margin:0 auto; letter-spacing:-.025em; }
 .quote-band small { display:block; margin-top:24px; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.2em; }
@@ -142,7 +152,7 @@ h2 { font:400 clamp(42px,5vw,70px)/.98 var(--site-font-heading); letter-spacing:
 @media (max-width:800px) {
  .header { padding:18px 22px; }.menu-toggle { display:block; }.nav { display:none; position:absolute; top:100%; left:0; right:0; background:var(--paper); padding:22px; flex-direction:column; align-items:stretch; border-bottom:1px solid var(--line); }.nav.open { display:flex; }.nav-cta { text-align:center; }
  .hero { grid-template-columns:1fr; padding-top:54px; gap:10px; }.hero-visual { min-height:420px; }.hero-note { margin-top:28px; }
- .section { padding:70px 22px; }.section-head { display:block; }.section-intro { margin-top:16px; }.experience { grid-template-columns:1fr; }.experience-card { min-height:300px; }.menu-grid { grid-template-columns:1fr; }.story,.visit { grid-template-columns:1fr; }.story-art { min-height:390px; order:2; }.visit .map-art { order:-1; min-height:300px; }
+ .section { padding:70px 22px; }.section-head { display:block; }.section-intro { margin-top:16px; }.experience { grid-template-columns:1fr; }.experience-card { min-height:300px; }.menu-grid { grid-template-columns:1fr; }.reviews-grid { grid-template-columns:1fr; }.whatsapp-float { right:14px; bottom:14px; padding:13px 16px; }.story,.visit { grid-template-columns:1fr; }.story-art { min-height:390px; order:2; }.visit .map-art { order:-1; min-height:300px; }
 }
 @media (max-width:420px) { .hero-visual { min-height:340px; }.sun-disc { width:190px; height:190px; }.hero-sticker { width:88px; height:88px; font-size:15px; }.plate { width:76%; }.brand-name { font-size:24px; } }
 @media (prefers-reduced-motion:reduce) { *,*:before,*:after { scroll-behavior:auto!important; animation:none!important; transition:none!important; } }
@@ -154,7 +164,7 @@ h2 { font:400 clamp(42px,5vw,70px)/.98 var(--site-font-heading); letter-spacing:
   <header class="header">
     <a class="brand" href="#home" aria-label="Cicely home"><span class="brand-mark">c</span><span><span class="brand-name">cicely</span><small>eat · explore · enjoy</small></span></a>
     <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav class="nav" aria-label="Main navigation"><a href="#experience">The vibe</a><a href="#menu">Menu</a><a href="#story">Our story</a><a href="#visit">Find us</a><a class="nav-cta" href="tel:+919294942828">Let's talk ↗</a></nav>
+    <nav class="nav" aria-label="Main navigation"><a href="#experience">The vibe</a><a href="#menu">Menu</a><a href="#reviews">Reviews</a><a href="#story">Our story</a><a href="#visit">Find us</a><a href="https://wa.me/919294942828?text=Hi%20Cicely%2C%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener">WhatsApp</a><a class="nav-cta" href="tel:+919294942828">Call us ↗</a></nav>
   </header>
   <main>
     <section class="hero" id="home">
@@ -181,6 +191,15 @@ h2 { font:400 clamp(42px,5vw,70px)/.98 var(--site-font-heading); letter-spacing:
         <article class="experience-card reveal"><span class="card-index">03 / THE PEOPLE</span><div class="orb"></div><div><h3>Better together.</h3><p>Catch-ups, celebrations, first dates or absolutely no occasion at all.</p></div></article>
       </div>
     </section>
+    <section class="section reviews-section" id="reviews">
+      <div class="section-head reveal"><div><div class="eyebrow">Kind words from real visits</div><h2>Heard around<br>the table.</h2></div><p class="section-intro">A few notes shared by customers on public dining platforms. Every visit is its own story.</p></div>
+      <div class="reviews-grid">
+        <article class="review-card reveal"><div class="review-stars" aria-label="5 out of 5 stars">★★★★★ <span>5.0</span></div><blockquote>“Non veg Ramen bowl and Ube Mango sticky rice were the best. Would definitely visit their place again.”</blockquote><div class="review-author">Ravi Kishore</div><div class="review-source">Customer review · District</div></article>
+        <article class="review-card reveal"><div class="review-stars" aria-label="5 out of 5 stars">★★★★★ <span>5.0</span></div><blockquote>“Staff was polite and warm. Good service. Calm ambiance.”</blockquote><div class="review-author">Immi</div><div class="review-source">Customer review · Zomato</div></article>
+        <article class="review-card reveal"><div class="review-stars" aria-label="5 out of 5 stars">★★★★★ <span>5.0</span></div><blockquote>“I recommend chilli green fish… very delicious. Come to eat and enjoy the ambiance.”</blockquote><div class="review-author">Mounika Chennu</div><div class="review-source">Customer review · District</div></article>
+      </div>
+      <div class="review-links"><a href="https://www.zomato.com/vijayawada/cicely-labbipet/reviews" target="_blank" rel="noopener">More reviews on Zomato ↗</a><a href="https://www.district.in/dining/vijayawada/cicely-labbipet" target="_blank" rel="noopener">More reviews on District ↗</a></div>
+    </section>
     <section class="section menu-section" id="menu">
       <div class="section-head reveal"><div><div class="eyebrow">A little something for everyone</div><h2>The good stuff.</h2></div><p class="section-intro">A preview of the kind of flavours waiting at Cicely. Ask our team for today's full menu and availability.</p></div>
       <div class="menu-tabs reveal" role="tablist" aria-label="Menu categories"><button class="tab active" data-category="all" role="tab" aria-selected="true">A little of everything</button><button class="tab" data-category="asian" role="tab" aria-selected="false">Pan-Asian</button><button class="tab" data-category="comfort" role="tab" aria-selected="false">Comfort plates</button><button class="tab" data-category="sweet" role="tab" aria-selected="false">Sweet endings</button></div>
@@ -204,11 +223,12 @@ h2 { font:400 clamp(42px,5vw,70px)/.98 var(--site-font-heading); letter-spacing:
         <div class="visit-line"><span>Address</span><strong>Ground Floor, Food Republic Lane,<br>near Fortune Murali Park,<br>Labbipet, Vijayawada 520010</strong></div>
         <div class="visit-line"><span>Hours</span><strong>Daily · 12 PM – 10:30 PM</strong></div>
         <div class="visit-line"><span>Call</span><strong>+91 92949 42828</strong></div>
-        <div class="visit-actions"><a class="btn btn-primary" href="tel:+919294942828">Call Cicely ↗</a><a class="btn btn-outline" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Cicely+Labbipet+Vijayawada">Get directions ↗</a></div>
+        <div class="visit-actions"><a class="btn btn-primary" href="tel:+919294942828">Call Cicely ↗</a><a class="btn btn-outline" target="_blank" rel="noopener" href="https://wa.me/919294942828?text=Hi%20Cicely%2C%20I%27d%20like%20to%20know%20more.">WhatsApp us ↗</a><a class="btn btn-outline" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Cicely+Labbipet+Vijayawada">Get directions ↗</a></div>
       </div>
       <div class="map-art reveal" aria-label="Decorative map illustration showing Cicely in Vijayawada"><svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="#c2b3a1" stroke-width="13" opacity=".65"><path d="M-40 90 L170 180 290 110 660 240"/><path d="M-20 330 L170 250 310 300 650 90"/><path d="M100 -30 L220 130 200 450"/><path d="M450 -20 L390 150 470 450"/></g><g fill="none" stroke="#f6f0e7" stroke-width="5"><path d="M-40 90 L170 180 290 110 660 240"/><path d="M-20 330 L170 250 310 300 650 90"/><path d="M100 -30 L220 130 200 450"/><path d="M450 -20 L390 150 470 450"/></g><g fill="#c8df68" opacity=".7"><circle cx="100" cy="80" r="25"/><circle cx="510" cy="310" r="35"/><circle cx="90" cy="330" r="17"/></g></svg><div class="map-pin"><span>c</span></div></div>
     </section>
   </main>
+  <a class="whatsapp-float" href="https://wa.me/919294942828?text=Hi%20Cicely%2C%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener" aria-label="Chat with Cicely on WhatsApp">◉ WhatsApp us</a>
   <footer class="footer"><a class="brand" href="#home"><span class="brand-mark">c</span><span><span class="brand-name">cicely</span><small>eat · explore · enjoy</small></span></a><div class="footer-note">Good food. Good moods. Vijayawada.</div><div class="footer-credit">A concept by <b>VS STUDIO</b> · Designed to stand apart.</div></footer>
 </div>
 <script>
